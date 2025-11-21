@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["middleware", "nodejs", "express"],
+  "author": "JKS",
   "license": "ISC",
   "description": "",
   "dependencies": {
