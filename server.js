@@ -20,13 +20,13 @@ let users = [
     id: 2,
     firstName: "John",
     lastName: "Doe",
-    hobbys: "reading",
+    hobby: "reading",
   },
   {
     id: 3,
     firstName: "Jane",
     lastName: "Smith",
-    hobbys: "cooking",
+    hobby: "cooking",
   },
 ];
 
@@ -102,12 +102,12 @@ app.get("/users/:id", (req, res) => {
 // Create a new user
 app.post("/users", validateUser, (req, res) => {
   try {
-    const { firstName, lastName, hobbys } = req.body;
+    const { firstName, lastName, hobby } = req.body;
     const newUser = {
       id: nextId++,
       firstName,
       lastName,
-      hobbys,
+      hobby,
     };
     users.push(newUser);
     res.status(201).json({
@@ -129,12 +129,12 @@ app.put("/users/:id", validateUserUpdate, (req, res) => {
 
     // update user if found
     if (userIndex !== -1) {
-      const { firstName, lastName, hobbys } = req.body;
+      const { firstName, lastName, hobby } = req.body;
       users[userIndex] = {
         ...users[userIndex],
         firstName,
         lastName,
-        hobbys,
+        hobby,
       };
 
       res.status(200).json({

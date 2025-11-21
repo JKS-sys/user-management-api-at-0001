@@ -2,17 +2,17 @@
 // check if required fields are present and valid
 
 const validateUser = (req, res, next) => {
-  const { firstName, lastName, hobbys } = req.body;
+  const { firstName, lastName, hobby } = req.body;
 
   // check if all required fields are present
-  if (!firstName || !lastName || !hobbys) {
+  if (!firstName || !lastName || !hobby) {
     return res.status(400).json({
       error: "Validation failed",
-      message: "First name, last name, and hobbys are required.",
+      message: "First name, last name, and hobby are required.",
       missingFields: {
         firstName: !firstName,
         lastName: !lastName,
-        hobbys: !hobbys,
+        hobby: !hobby,
       },
     });
   }
@@ -21,11 +21,11 @@ const validateUser = (req, res, next) => {
   if (
     typeof firstName !== "string" ||
     typeof lastName !== "string" ||
-    typeof hobbys !== "string"
+    typeof hobby !== "string"
   ) {
     return res.status(400).json({
       error: "Validation failed",
-      message: "First name, last name, and hobbys must be strings.",
+      message: "First name, last name, and hobby must be strings.",
     });
   }
 
@@ -42,16 +42,16 @@ const validateUser = (req, res, next) => {
       message: "Last name cannot be empty or whitespace only.",
     });
   }
-  if (hobbys && hobbys.trim().length === 0) {
+  if (hobby && hobby.trim().length === 0) {
     return res.status(400).json({
       error: "Validation failed",
-      message: "Hobbys cannot be empty or whitespace only.",
+      message: "hobby cannot be empty or whitespace only.",
     });
   }
   // Trim whitespace from fields
   req.body.firstName = firstName.trim();
   req.body.lastName = lastName.trim();
-  req.body.hobbys = hobbys.trim();
+  req.body.hobby = hobby.trim();
 
   // if validation passes, proceed to the next middleware/handler
 
@@ -61,14 +61,14 @@ const validateUser = (req, res, next) => {
 // Validation middleware for user update (PUT /user/:id)
 // Checks if at least one field is present and valid
 const validateUserUpdate = (req, res, next) => {
-  const { firstName, lastName, hobbys } = req.body;
+  const { firstName, lastName, hobby } = req.body;
 
   // check if at least one field is present
-  if (!firstName && !lastName && !hobbys) {
+  if (!firstName && !lastName && !hobby) {
     return res.status(400).json({
       error: "Validation failed",
       message:
-        "At least one of first name, last name, or hobbys must be provided.",
+        "At least one of first name, last name, or hobby must be provided.",
     });
   }
 
@@ -76,11 +76,11 @@ const validateUserUpdate = (req, res, next) => {
   if (
     (firstName && typeof firstName !== "string") ||
     (lastName && typeof lastName !== "string") ||
-    (hobbys && typeof hobbys !== "string")
+    (hobby && typeof hobby !== "string")
   ) {
     return res.status(400).json({
       error: "Validation failed",
-      message: "First name, last name, and hobbys must be strings.",
+      message: "First name, last name, and hobby must be strings.",
     });
   }
 
@@ -97,17 +97,17 @@ const validateUserUpdate = (req, res, next) => {
       message: "Last name cannot be empty or whitespace only.",
     });
   }
-  if (hobbys && hobbys.trim().length === 0) {
+  if (hobby && hobby.trim().length === 0) {
     return res.status(400).json({
       error: "Validation failed",
-      message: "Hobbys cannot be empty or whitespace only.",
+      message: "hobby cannot be empty or whitespace only.",
     });
   }
 
   // Trim whitespace from fields if they are provided
   if (firstName) req.body.firstName = firstName.trim();
   if (lastName) req.body.lastName = lastName.trim();
-  if (hobbys) req.body.hobbys = hobbys.trim();
+  if (hobby) req.body.hobby = hobby.trim();
 
   // if validation passes, proceed to the next middleware/handler
   next();

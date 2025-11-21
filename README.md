@@ -71,13 +71,13 @@ A RESTful API for managing users built with Node.js and Express that supports fu
       "id": 2,
       "firstName": "John",
       "lastName": "Doe",
-      "hobbys": "reading"
+      "hobby": "reading"
     },
     {
       "id": 3,
       "firstName": "Jane",
       "lastName": "Smith",
-      "hobbys": "cooking"
+      "hobby": "cooking"
     }
   ]
 }
@@ -97,7 +97,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
     "id": 3,
     "firstName": "Jane",
     "lastName": "Smith",
-    "hobbys": "cooking"
+    "hobby": "cooking"
   }
 }
 ```
@@ -127,7 +127,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
 {
   "firstName": "Antony",
   "lastName": "Bill",
-  "hobbys": "cooking"
+  "hobby": "cooking"
 }
 ```
 
@@ -140,7 +140,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
     "id": 4,
     "firstName": "Antony",
     "lastName": "Bill",
-    "hobbys": "cooking"
+    "hobby": "cooking"
   }
 }
 ```
@@ -164,7 +164,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
 ```json
 {
   "error": "Validation failed",
-  "message": "First name, last name, and hobbys are required."
+  "message": "First name, last name, and hobby are required."
 }
 ```
 
@@ -227,7 +227,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
 ```json
 {
   "error": "Validation failed",
-  "message": "At least one of first name, last name, or hobbys must be provided."
+  "message": "At least one of first name, last name, or hobby must be provided."
 }
 ```
 
