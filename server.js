@@ -1,5 +1,5 @@
 const express = require("express");
-const { validateUser } = require("./middleware/validation");
+const { validateUser, validateUserUpdate } = require("./middleware/validation");
 
 // initialize express app
 const app = express();
@@ -20,14 +20,12 @@ let users = [
     id: 2,
     firstName: "John",
     lastName: "Doe",
-
     hobbys: "reading",
   },
   {
     id: 3,
     firstName: "Jane",
     lastName: "Smith",
-
     hobbys: "cooking",
   },
 ];
@@ -124,7 +122,7 @@ app.post("/users", validateUser, (req, res) => {
 });
 
 // Update user by ID
-app.put("/users/:id", validateUser, (req, res) => {
+app.put("/users/:id", validateUserUpdate, (req, res) => {
   try {
     const userId = parseInt(req.params.id);
     const userIndex = users.findIndex((u) => u.id === userId);

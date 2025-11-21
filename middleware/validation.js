@@ -9,9 +9,13 @@ const validateUser = (req, res, next) => {
     return res.status(400).json({
       error: "Validation failed",
       message: "First name, last name, and hobbys are required.",
+      missingFields: {
+        firstName: !firstName,
+        lastName: !lastName,
+        hobbys: !hobbys,
+      },
     });
   }
-  // additional validation can be added here (e.g., data types, formats)
 
   // Validate fields types (should be strings)
   if (
