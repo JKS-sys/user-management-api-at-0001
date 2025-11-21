@@ -214,7 +214,7 @@ A RESTful API for managing users built with Node.js and Express that supports fu
 ### 9. Update User (Validation Error)
 
 **PUT /users/1** - No fields provided
-![Update User Validation Error](screenshots/PUT/No fields provided.png)
+![Update User Validation Error](screenshots/PUT/No%20fields%20provided.png)
 
 **Request Body (invalid):**
 
